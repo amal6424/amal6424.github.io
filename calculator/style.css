@@ -18,6 +18,7 @@
     justify-content: end;
     align-items: center;
     padding: 10;
+    font-size: xx-large;
 }
 .b{
     grid-column: span 1;
