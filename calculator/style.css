@@ -1,0 +1,31 @@
+.container{
+    display: grid;
+    min-width: 50%;
+    min-height: 90%;
+    gap: 10px;
+    padding: 5px;
+    grid-template-columns: repeat(4 1fr);
+    grid-template-rows: repeat(6 1fr);
+    background-color: brown;
+    border-radius: 10px;
+}
+.display{
+    grid-column: span 4;
+    grid-row: span 1;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10;
+}
+.b{
+    grid-column: span 1;
+    grid-row: span 1;
+    background-color: aquamarine;
+    border-radius: 15px;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
