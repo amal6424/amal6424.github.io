@@ -17,6 +17,7 @@ const addButton = document.querySelector("#add");
 const subButton = document.querySelector("#sub");
 const divButton = document.querySelector("#div");
 const mulButton = document.querySelector("#mul");
+const decimalButton = document.querySelector("#decimal");
 
 const oneButton = document.querySelector("#one");
 const twoButton = document.querySelector("#two");
@@ -50,6 +51,7 @@ function main(){
     mulButton.addEventListener("click", ()=>{ChangeOperation(OPERATION_MUL)});
 
     equalsButton.addEventListener("click", equals);
+    decimalButton.addEventListener("click", addDecimal);
 
     oneButton.addEventListener("click", ()=>{NumberKeyPress(1)});
     twoButton.addEventListener("click", ()=>{NumberKeyPress(2)});
@@ -107,9 +109,13 @@ function ChangeOperation(type){
     currentOperation = type;
     updateDisplay();
 }
+function addDecimal(){
+    if(rightOperand.toString().indexOf(".") == -1)
+        NumberKeyPress(".");
+}
 function NumberKeyPress(num){
     if(rightOperand.toString().length == 12)return;
-    if(rightOperand == 0) rightOperand = '';
+    if(rightOperand == 0 && num != "." && rightOperand.toString().length == 1) rightOperand = '';
     rightOperand = rightOperand + "" + num;
     updateDisplay();
 }
