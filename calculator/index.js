@@ -19,16 +19,7 @@ const divButton = document.querySelector("#div");
 const mulButton = document.querySelector("#mul");
 const decimalButton = document.querySelector("#decimal");
 
-const oneButton = document.querySelector("#one");
-const twoButton = document.querySelector("#two");
-const threeButton = document.querySelector("#three");
-const fourButton = document.querySelector("#four");
-const fiveButton = document.querySelector("#five");
-const sixButton = document.querySelector("#six");
-const sevenButton = document.querySelector("#seven");
-const eightButton = document.querySelector("#eight");
-const nineButton = document.querySelector("#nine");
-const zeroButton = document.querySelector("#zero");
+const numberButtons = [document.querySelector("#zero"),document.querySelector("#one"),document.querySelector("#two"),document.querySelector("#three"),document.querySelector("#four"),document.querySelector("#five"),document.querySelector("#six"),document.querySelector("#seven"),document.querySelector("#eight"),document.querySelector("#nine")];
 
 const equalsButton = document.querySelector("#equals");
 
@@ -53,16 +44,9 @@ function main(){
     equalsButton.addEventListener("click", equals);
     decimalButton.addEventListener("click", addDecimal);
 
-    oneButton.addEventListener("click", ()=>{NumberKeyPress(1)});
-    twoButton.addEventListener("click", ()=>{NumberKeyPress(2)});
-    threeButton.addEventListener("click", ()=>{NumberKeyPress(3)});
-    fourButton.addEventListener("click", ()=>{NumberKeyPress(4)});
-    fiveButton.addEventListener("click", ()=>{NumberKeyPress(5)});
-    sixButton.addEventListener("click", ()=>{NumberKeyPress(6)});
-    sevenButton.addEventListener("click", ()=>{NumberKeyPress(7)});
-    eightButton.addEventListener("click", ()=>{NumberKeyPress(8)});
-    nineButton.addEventListener("click", ()=>{NumberKeyPress(9)});
-    zeroButton.addEventListener("click", ()=>{NumberKeyPress(0)});
+    for(let i=0;i<10;i++){
+        numberButtons[i].addEventListener("click", ()=>{NumberKeyPress(i)});
+    }
     updateDisplay();
 }
 function updateDisplay(){
