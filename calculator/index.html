@@ -8,7 +8,16 @@
 <body>
     
     <div class="container">
-        <div id="display" class="display"></div>
+        <div id="display" class="display">
+            <div class="operandContainer">
+                <div id="leftOperandDisplay" class="leftOperand">6565656</div>
+                <div id="rightOperandDisplay" class="rightOperand">6565656566565656565</div>
+            </div>
+            <div class="operatorContainer">
+                <div id="operatorSign" class="operator"></div>
+                <div id="equalsSign" class="equals"></div>
+            </div>
+        </div>
         <div id="ac" class="b">AC</div>
         <div class="b">()</div>
         <div class="b">%</div>
@@ -27,7 +36,7 @@
         <div id="add" class="b">+</div>
         <div id="zero" class="b">0</div>
         <div class="b">.</div>
-        <div class="b">b</div>
+        <div id="backspaceButton" class="b">b</div>
         <div id="equals" class="b">=</div>
     </div>
     <script src="index.js"></script>

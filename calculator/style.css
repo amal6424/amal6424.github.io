@@ -9,6 +9,21 @@
     background-color: brown;
     border-radius: 10px;
 }
+.leftOperand{
+    text-align: end;
+    padding-right: 10;
+    font-size: x-large;
+}
+.rightOperand{
+    text-align: end;
+    padding-right: 10;
+}
+.operator{
+    padding-right: 10;
+}
+.equals{
+    padding-right: 10;
+}
 .display{
     grid-column: span 4;
     grid-row: span 1;
@@ -17,7 +32,6 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    padding: 10;
     font-size: xx-large;
 }
 .b{

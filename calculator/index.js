@@ -5,8 +5,13 @@ const OPERATION_DIV = 4;
 const OPERATION_DEF = 0;
 
 const display = document.querySelector("#display");
+const leftOperandDisplay = document.querySelector("#leftOperandDisplay");
+const rightOperandDisplay = document.querySelector("#rightOperandDisplay");
+const operatorSignDisplay = document.querySelector("#operatorSign");
+const equalsSignDisplay = document.querySelector("#equalsSign");
 
 const acButton = document.querySelector("#ac");
+const backspaceButton = document.querySelector("#backspaceButton");
 
 const addButton = document.querySelector("#add");
 const subButton = document.querySelector("#sub");
@@ -28,13 +33,16 @@ const equalsButton = document.querySelector("#equals");
 
 let currentOperation = OPERATION_DEF;
 
-let leftOperand = 0;
+let leftOperand = '';
 let rightOperand = 0;
+
+let equalsPressed = false;
 
 
 main();
 function main(){
     acButton.addEventListener("click", allClear);
+    backspaceButton.addEventListener("click", backspace);
 
     addButton.addEventListener("click", ()=>{ChangeOperation(OPERATION_ADD)});
     subButton.addEventListener("click", ()=>{ChangeOperation(OPERATION_SUB)});
@@ -56,12 +64,42 @@ function main(){
     updateDisplay();
 }
 function updateDisplay(){
-    display.innerHTML = rightOperand;
+    leftOperandDisplay.innerHTML = leftOperand;
+    rightOperandDisplay.innerHTML = rightOperand;
+    switch(currentOperation){
+        case OPERATION_ADD:
+            operatorSignDisplay.innerHTML = '+';
+            break;
+        case OPERATION_SUB:
+            operatorSignDisplay.innerHTML = '-';
+            break;
+        case OPERATION_DIV:
+            operatorSignDisplay.innerHTML = '/';
+            break;
+        case OPERATION_MUL:
+            operatorSignDisplay.innerHTML = 'x';
+            break;
+        case OPERATION_DEF:
+            operatorSignDisplay.innerHTML = '';
+            break;
+    }
+    if(equalsPressed) equalsSignDisplay.innerHTML = '=';
+    else equalsSignDisplay.innerHTML = '';
 }
 function allClear(){
     rightOperand = 0;
-    leftOperand = 0;
+    leftOperand = '';
     currentOperation = OPERATION_DEF;
+    equalsPressed = false;
+    updateDisplay();
+}
+function backspace(){
+    if(rightOperand.toString().length>0){
+        rightOperand = rightOperand.toString().substring(0, rightOperand.toString().length - 1);
+    }
+    if(rightOperand.toString().length==0){
+        rightOperand = 0;
+    }
     updateDisplay();
 }
 function ChangeOperation(type){
@@ -70,6 +108,7 @@ function ChangeOperation(type){
     updateDisplay();
 }
 function NumberKeyPress(num){
+    if(rightOperand.toString().length == 12)return;
     if(rightOperand == 0) rightOperand = '';
     rightOperand = rightOperand + "" + num;
     updateDisplay();
@@ -79,6 +118,7 @@ function equals(){
     rightOperand = leftOperand;
     leftOperand = ''
     currentOperation = OPERATION_DEF;
+    equalsPressed = true;
     updateDisplay();
 }
 function calculate(type){
