@@ -1,0 +1,48 @@
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    background-color: antiquewhite;
+}
+.input_boxes{
+    display: flex;
+    justify-content: center;
+}
+.input_box{
+    border-radius: 15px;
+    height: 40px;
+    text-align: center;
+}
+.buttons{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.button{
+    padding: 8px;
+    border-radius: 10px;
+    background-color: darkblue;
+    color: white;
+}
+.button:active{
+    background-color: beige;
+    color: black;
+}
+.tables{
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-around;
+}
+.lineBreak{
+    width: 1px;
+    min-height: 50vh;
+}
+.table{
+    border: 1px solid darkblue;
+    min-width: 30vh;
+    justify-content: center;
+    text-align: center;
+    padding-top: 8px;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
