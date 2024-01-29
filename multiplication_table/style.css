@@ -39,7 +39,7 @@
 }
 .table{
     border: 1px solid darkblue;
-    min-width: 30vh;
+    min-width: 25vh;
     justify-content: center;
     text-align: center;
     padding-top: 8px;
