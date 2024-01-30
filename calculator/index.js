@@ -110,6 +110,7 @@ function equals(){
     currentOperation = OPERATION_DEF;
     equalsPressed = true;
     updateDisplay();
+    
 }
 function calculate(type){
     switch(currentOperation){
