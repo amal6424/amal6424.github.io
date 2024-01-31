@@ -1,9 +1,14 @@
 const hr_hand = document.querySelector(".hr_hand");
 const min_hand = document.querySelector(".min_hand");
 const sec_hand = document.querySelector(".sec_hand");
+const clock_outer_shell = document.querySelector(".clock_outer_shell");
 
 main();
 function main(){
+    const clock_width = getComputedStyle(clock_outer_shell).getPropertyValue("width");
+    const clock_height = getComputedStyle(clock_outer_shell).getPropertyValue("height");
+    if(clock_height>clock_width)
+        clock_outer_shell.style.height = `${clock_width}`;
     setInterval(updateTime, 1000);
     updateTime();
 }
