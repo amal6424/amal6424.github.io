@@ -1,12 +1,24 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AnalogClock</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <canvas id="canvas" class="canvas">
-    </canvas>
+<body class="body">
+    <div class="clock_outer_shell">
+        <div class="hr_hand">
+            <div style="width: 20px;background-color: darkred; height: 50%;"></div>
+        </div>
+        <div class="min_hand">
+            <div style="width: 15px;background-color: yellowgreen; height: 50%;"></div>
+        </div>
+        <div class="sec_hand">
+            <div style="height: 50%;width: 10px;background-color: goldenrod;"></div>
+        </div>
+        <div class="center_dot"></div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

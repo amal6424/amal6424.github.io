@@ -1,4 +1,31 @@
-.canvas{
-    width: 500px;
-    height: 500px;
+.body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    height: 80vh;
+    background-color: bisque;
+}
+.clock_outer_shell{
+    border: 20px solid darkblue;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center_dot{
+    border: 20px solid darkblue;
+    border-radius: 100%;
+    position: absolute;
+}
+.hr_hand{
+    position: absolute;
+    height: 40%;
+}
+.min_hand{
+    position: absolute;
+    height: 50%;
+}
+.sec_hand{
+    position: absolute;
+    height: 60%;
 }
