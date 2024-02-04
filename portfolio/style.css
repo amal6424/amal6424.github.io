@@ -1,0 +1,29 @@
+.about{
+    background-color: aquamarine;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.introduction{
+    margin: 10px;
+}
+.image{
+    background-color: darkblue;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+}
+.skill_card_container{
+    background-color: antiquewhite;
+}
+.skill_card{
+    border: 2px solid rgb(208, 208, 230);
+    margin: 5px;
+    border-radius: 10px;
+}
+.skill_card_h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}

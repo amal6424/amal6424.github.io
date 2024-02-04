@@ -9,8 +9,9 @@ function main(){
     const clock_height = getComputedStyle(clock_outer_shell).getPropertyValue("height");
     if(clock_height>clock_width)
         clock_outer_shell.style.height = `${clock_width}`;
+    else if(clock_width>clock_height)
+        clock_outer_shell.style.width = `${clock_height}`;
     setInterval(updateTime, 1000);
-    updateTime();
 }
 function updateTime(){
     const clock = new Date();
