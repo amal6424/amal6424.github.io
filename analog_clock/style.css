@@ -1,9 +1,22 @@
-.body{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    height: 80vh;
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: bisque;
+}
+
+@media all and (orientation:portrait) {
+    .clock_outer_shell{
+        height: 80vw;
+        width: 80vw;
+    }
+}
+@media all and (orientation:landscape) {
+    .clock_outer_shell{
+        height: 80vh;
+        width: 80vh;
+    }
 }
 .clock_outer_shell{
     border: 20px solid darkblue;
@@ -11,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .center_dot{
     border: 20px solid darkblue;
@@ -19,13 +33,13 @@
 }
 .hr_hand{
     position: absolute;
-    height: 40%;
+    height: 60%;
 }
 .min_hand{
     position: absolute;
-    height: 50%;
+    height: 80%;
 }
 .sec_hand{
     position: absolute;
-    height: 60%;
+    height: 90%;
 }
