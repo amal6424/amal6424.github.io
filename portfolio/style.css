@@ -1,6 +1,10 @@
+.body{
+    background-color: black;
+}
 .about{
-    background-color: aquamarine;
+    background-color: lightblue;
     margin: 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
 }
@@ -12,18 +16,24 @@
     margin: 10px;
     width: 100px;
     height: 100px;
+    border-radius: 10px;
 }
-.skill_card_container{
-    background-color: antiquewhite;
+.skills_over_view h1{
+    color: white;
+}
+.skills_over_view p{
+    color: lightblue;
 }
 .skill_card{
     border: 2px solid rgb(208, 208, 230);
     margin: 5px;
     border-radius: 10px;
+    color: white;
 }
 .skill_card_h1{
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: large;
+    color: lightblue;
 }
