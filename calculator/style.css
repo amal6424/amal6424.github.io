@@ -1,3 +1,4 @@
+
 .container{
     display: grid;
     min-width: 50%;
@@ -6,7 +7,7 @@
     padding: 5px;
     grid-template-columns: repeat(4 1fr);
     grid-template-rows: repeat(6 1fr);
-    background-color: brown;
+    background-color: black;
     border-radius: 10px;
 }
 .leftOperand{
@@ -29,6 +30,7 @@
     grid-row: span 1;
     background-color: aliceblue;
     border-radius: 10px;
+    margin: 10px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -37,7 +39,9 @@
 .b{
     grid-column: span 1;
     grid-row: span 1;
-    background-color: aquamarine;
+    background-color: rgb(66, 66, 66);
+    color: white;
+    margin: 10px;
     border-radius: 15px;
     font-size: x-large;
     display: flex;
@@ -46,4 +50,18 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none;
+}
+.b:active{
+    background-color: darkgray;
+    color: black;
+}
+#ac{
+    background-color: rgb(204, 9, 9);
+}
+#ac:active{
+    background-color: red;
+}
+#equals{
+    background-color: green;
+    color: rgb(255, 0, 0);
 }
