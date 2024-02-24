@@ -32,11 +32,36 @@ h1 {
   position: absolute;
   border-radius: 50%;
 }
-
 .food {
   width: 20px;
   height: 20px;
   background-color: red;
   position: absolute;
   border-radius: 50%;
+}
+.btn_container{
+  background-color: darkgray;
+  width: 90%;
+  border-radius: 10px;
+  margin: 2px;
+}
+.cntrl{
+  background-color: black;
+  color: white;
+  margin: 5px;
+  padding: 10px;
+  min-width: 20%;
+  border-radius: 10px;
+  border: 0px ;
+}
+.cntrl:active{
+  background-color: darkgray;
+}
+.btn{
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.btn:active{
+  background-color: darkgray;
 }

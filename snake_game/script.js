@@ -1,3 +1,9 @@
+const up_btn = document.querySelector("#up");
+const down_btn = document.querySelector("#down");
+const left_btn = document.querySelector("#left");
+const right_btn = document.querySelector("#right");
+
+
 let snake = [{ x: 200, y: 200 }];
 let food = { x: 0, y: 0 };
 let dx = 0;
@@ -101,21 +107,29 @@ function endGame() {
   clearInterval(gameInterval);
   alert('Game Over! Your score: ' + score);
 }
-
-document.addEventListener('keydown', function(event) {
+function event_handler(key){
   const SEGMENT = 20;
-  if (event.key === 'ArrowUp' && dy !== SEGMENT) {
+  if (key == 'ArrowUp' && dy !== SEGMENT) {
     dx = 0;
     dy = -SEGMENT;
-  } else if (event.key === 'ArrowDown' && dy !== -SEGMENT) {
+  } else if (key == 'ArrowDown' && dy !== -SEGMENT) {
     dx = 0;
     dy = SEGMENT;
-  } else if (event.key === 'ArrowLeft' && dx !== SEGMENT) {
+  } else if (key == 'ArrowLeft' && dx !== SEGMENT) {
     dx = -SEGMENT;
     dy = 0;
-  } else if (event.key === 'ArrowRight' && dx !== -SEGMENT) {
+  } else if (key == 'ArrowRight' && dx !== -SEGMENT) {
     dx = SEGMENT;
     dy = 0;
   }
+}
+document.addEventListener('keydown', function(event) {
+  event_handler(event.key);
 });
-
+function main(){
+  up_btn.addEventListener("click", ()=>{event_handler("ArrowUp")});
+  down_btn.addEventListener("click", ()=>{event_handler("ArrowDown")});
+  left_btn.addEventListener("click", ()=>{event_handler("ArrowLeft")});
+  right_btn.addEventListener("click", ()=>{event_handler("ArrowRight")});
+}
+main();
