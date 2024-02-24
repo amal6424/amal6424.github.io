@@ -2,6 +2,11 @@ const up_btn = document.querySelector("#up");
 const down_btn = document.querySelector("#down");
 const left_btn = document.querySelector("#left");
 const right_btn = document.querySelector("#right");
+const pause_btn = document.querySelector("#pause");
+
+
+const current_direction={dx:0,dy:0,isPaused:true};
+const game_speed = 300;
 
 
 let snake = [{ x: 200, y: 200 }];
@@ -19,7 +24,7 @@ function startGame() {
   resetGame();
   createSnake();
   createFood();
-  gameInterval = setInterval(moveSnake, 300);
+  //gameInterval = setInterval(moveSnake, game_speed);
 }
 
 function resetGame() {
@@ -29,6 +34,10 @@ function resetGame() {
   score = 0;
   score_card.textContent = score_text + '0';
   game_board.innerHTML = '';
+  current_direction.dx = 0;
+  current_direction.dy = 0;
+  current_direction.isPaused = true;
+  pause_btn.innerHTML = "play";
   clearInterval(gameInterval);
 }
 
@@ -93,13 +102,19 @@ function updateGame() {
 }
 
 function checkCollision() {
+  const LEFT_BORDER = 0;
+  const RIGHT_BORDER = 400;
+  const TOP_BORDER = 0;
+  const BOTTOM_BORDER = 400;
   const head = snake[0];
   return (
-    head.x < 0 ||
-    head.x >= 400 ||
-    head.y < 0 ||
-    head.y >= 400 ||
-    snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
+    head.x < LEFT_BORDER ||
+    head.x >= RIGHT_BORDER ||
+    head.y < TOP_BORDER ||
+    head.y >= BOTTOM_BORDER ||
+    snake.slice(1)
+      .some(bodySegment => bodySegment.x === head.x 
+      && bodySegment.y === head.y)
   );
 }
 
@@ -110,28 +125,58 @@ function endGame() {
 }
 function event_handler(key){
   const SEGMENT = 20;
-  if (key == 'ArrowUp' && dy !== SEGMENT) {
-    dx = 0;
-    dy = -SEGMENT;
+  const UP = {dx:0,dy:-SEGMENT};
+  const DOWN = {dx:0,dy:SEGMENT};
+  const LEFT = {dx:-SEGMENT,dy:0};
+  const RIGHT = {dx:SEGMENT,dy:0};
+  if(key == 'Pause' || key == ''){
+    if(!current_direction.isPaused){
+      current_direction.dx = dx;
+      current_direction.dy = dy;
+      dx = 0;
+      dy = 0;
+      current_direction.isPaused = true;
+      clearInterval(gameInterval);
+      pause_btn.innerHTML = "play"
+    }else{
+      if(current_direction.dx === 0&& current_direction.dy === 0){
+        current_direction.dx =  RIGHT.dx;
+        current_direction.dy = RIGHT.dy;
+      }
+      dx = current_direction.dx;
+      dy = current_direction.dy;
+      current_direction.isPaused = false;
+      gameInterval = setInterval(moveSnake, game_speed);
+      pause_btn.innerHTML = "pause"
+    }
+  }else if(current_direction.isPaused){
+    return;
+  }else if (key == 'ArrowUp' && dy !== SEGMENT) {
+    dx = UP.dx;
+    dy = UP.dy;
   } else if (key == 'ArrowDown' && dy !== -SEGMENT) {
-    dx = 0;
-    dy = SEGMENT;
+    dx = DOWN.dx;
+    dy = DOWN.dy;
   } else if (key == 'ArrowLeft' && dx !== SEGMENT) {
-    dx = -SEGMENT;
-    dy = 0;
+    dx = LEFT.dx;
+    dy = LEFT.dy;
   } else if (key == 'ArrowRight' && dx !== -SEGMENT) {
-    dx = SEGMENT;
-    dy = 0;
+    dx = RIGHT.dx;
+    dy = RIGHT.dy;
   }
 }
-document.addEventListener('keydown', function(event) {
-  event_handler(event.key);
-});
 function main(){
   up_btn.addEventListener("click", ()=>{event_handler("ArrowUp")});
   down_btn.addEventListener("click", ()=>{event_handler("ArrowDown")});
   left_btn.addEventListener("click", ()=>{event_handler("ArrowLeft")});
   right_btn.addEventListener("click", ()=>{event_handler("ArrowRight")});
+  pause_btn.addEventListener("click",()=>{
+    event_handler("Pause");
+  })
+  
+  document.addEventListener('keydown', function(event) {
+    event_handler(event.key);
+  });
 
   startGame();
 }
