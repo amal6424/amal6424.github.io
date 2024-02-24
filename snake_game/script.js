@@ -14,12 +14,12 @@ let gameInterval;
 const score_card = document.querySelector("#score-card");
 const game_board = document.querySelector("#game-board");
 const score_text = "Your score: "
-startGame();
+
 function startGame() {
   resetGame();
   createSnake();
   createFood();
-  gameInterval = setInterval(moveSnake, 100);
+  gameInterval = setInterval(moveSnake, 300);
 }
 
 function resetGame() {
@@ -132,5 +132,7 @@ function main(){
   down_btn.addEventListener("click", ()=>{event_handler("ArrowDown")});
   left_btn.addEventListener("click", ()=>{event_handler("ArrowLeft")});
   right_btn.addEventListener("click", ()=>{event_handler("ArrowRight")});
+
+  startGame();
 }
 main();
