@@ -106,6 +106,7 @@ function checkCollision() {
 function endGame() {
   clearInterval(gameInterval);
   alert('Game Over! Your score: ' + score);
+  startGame();
 }
 function event_handler(key){
   const SEGMENT = 20;
