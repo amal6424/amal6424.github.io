@@ -24,3 +24,6 @@
 .btn:active{
     background-color: blue;
 }
+form a{
+    text-decoration: none;
+}
