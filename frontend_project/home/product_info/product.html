@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <div class="container">
+        <img id="image" class="image"></img>
+        <div class="product_info">
+            <label id="product_name">Product name: Dell laptop</label><br>
+            <form action="../order/order.html">
+                <div style="display: flex;margin: 10px;">
+                    <span>
+                        <label for="name">name :</label><br>
+                        <br>
+                        <label for="address">address :</label>
+                    </span>
+                    <span style="margin: 10px;"></span>
+                    <span>
+                        <input id="name" type="text" required><br>
+                        <br>
+                        <input id="address" type="text" required><br>
+                    </span>
+                </div>
+                    <button type="submit" class="btn">Order</button>
+                    <button id="add_to_cart_btn" type="button" class="btn">add to cart</button>
+            </form>
+        </div>
+    </div>
+    <script src="product.js"></script>
+</body>
+</html>

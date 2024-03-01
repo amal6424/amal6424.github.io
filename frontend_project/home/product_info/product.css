@@ -1,0 +1,26 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    background-image: url('../../images/shopping.webp');
+    max-width: 90vw;
+    max-height: 90vw;
+    background-size: contain;
+    background-color: red;
+    background-size: cover;
+}
+.btn{
+    background-color: darkblue;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border: 0px;
+    border-radius: 10px;
+}
+.btn:active{
+    background-color: blue;
+}
